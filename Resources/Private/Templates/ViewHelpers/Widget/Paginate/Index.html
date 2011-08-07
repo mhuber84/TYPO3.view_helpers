@@ -1,0 +1,9 @@
+<f:if condition="{configuration.insertAbove}">
+	<f:render partial="ViewHelpers/Widget/Paginate/Paginator" arguments="{pagination: pagination}"/>
+</f:if>
+
+<f:renderChildren arguments="{contentArguments}" />
+
+<f:if condition="{configuration.insertBelow}">
+	<f:render partial="ViewHelpers/Widget/Paginate/Paginator" arguments="{pagination: pagination}"/>
+</f:if>

@@ -1,0 +1,40 @@
+<ul class="prepend-1 f3-widget-paginator">
+	<f:if condition="{pagination.previousPage}">
+		<li class="left previous">
+			<f:if condition="{pagination.previousPage} > 1">
+				<f:then>
+					<f:widget.link arguments="{currentPage: pagination.previousPage}"><f:translate key="LLL:EXT:file/Resources/Private/Language/locallang.xml:previous" /></f:widget.link>
+				</f:then>
+				<f:else>
+					<f:widget.link><f:translate key="LLL:EXT:file/Resources/Private/Language/locallang.xml:previous" /></f:widget.link>
+				</f:else>
+			</f:if>
+		</li>
+	</f:if>
+	<f:for each="{pagination.pages}" as="page">
+		<f:if condition="{page.isCurrent}">
+			<f:then>
+				<li class="current">
+					<f:translate key="LLL:EXT:file/Resources/Private/Language/locallang.xml:page" /> {page.number}
+				</li>
+			</f:then>
+			<f:else>
+				<li>
+					<f:if condition="{page.number} > 1">
+						<f:then>
+							<f:widget.link arguments="{currentPage: page.number}"><f:translate key="LLL:EXT:file/Resources/Private/Language/locallang.xml:page" /> {page.number}</f:widget.link>
+						</f:then>
+						<f:else>
+							<f:widget.link><f:translate key="LLL:EXT:file/Resources/Private/Language/locallang.xml:page" /> {page.number}</f:widget.link>
+						</f:else>
+					</f:if>
+				</li>
+			</f:else>
+		</f:if>
+	</f:for>
+	<f:if condition="{pagination.nextPage}">
+		<li class="next">
+			<f:widget.link arguments="{currentPage: pagination.nextPage}"><f:translate key="LLL:EXT:file/Resources/Private/Language/locallang.xml:next" /></f:widget.link>
+		</li>
+	</f:if>
+</ul>
